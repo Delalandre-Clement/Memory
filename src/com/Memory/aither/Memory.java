@@ -15,6 +15,7 @@ public class Memory {
 	ArrayList<CarteJeu> jeuCarte = new ArrayList<CarteJeu>();
 	int cpt_clic = 0;
 	int cpt_carte_trouve = 0;
+	CarteJeu Memoire = null;
 	
 	/**
 	 * Launch the application.
@@ -67,12 +68,18 @@ public class Memory {
 		public void actionPerformed(ActionEvent arg0) {
 			CarteJeu jbutton = (CarteJeu)arg0.getSource();
 			if(jbutton.getEtat() != (CarteJeu.ETAT_DEFAULT)) return;
+			jbutton.setEtat1(CarteJeu.ETAT_RETOURNE);
 			if( cpt_clic %2 == 1 ){
-				jbutton.setEtat1(CarteJeu.ETAT_DEFAULT);
-			} else {
-				jbutton.setEtat1(CarteJeu.ETAT_RETOURNE);
+				if(jbutton.getImgCache().equals(Memoire.getImgCache()) ) {
+					jbutton.setVisible(false);
+					Memoire.setVisible(false);
+				} else {
+					jbutton.setEtat1(CarteJeu.ETAT_DEFAULT);
+					Memoire.setEtat1(CarteJeu.ETAT_DEFAULT);
+				}
 			}
 			cpt_clic++;
+			Memoire= jbutton;
 		}
 	};
 	
