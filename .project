@@ -1,0 +1,54 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<projectDescription>
+	<name>Memory</name>
+	<comment></comment>
+	<projects>
+	</projects>
+	<buildSpec>
+		<buildCommand>
+			<name>org.eclipse.jdt.core.javabuilder</name>
+			<arguments>
+			</arguments>
+		</buildCommand>
+	</buildSpec>
+	<natures>
+		<nature>org.eclipse.jdt.core.javanature</nature>
+	</natures>
+	<linkedResources>
+		<link>
+			<name>src/ressources/0.png</name>
+			<type>1</type>
+			<location>D:/Programmation (Java)/Memory/src/ressources/0.png</location>
+		</link>
+		<link>
+			<name>src/ressources/1.png</name>
+			<type>1</type>
+			<location>D:/Programmation (Java)/Memory/src/ressources/1.png</location>
+		</link>
+		<link>
+			<name>src/ressources/2.png</name>
+			<type>1</type>
+			<location>D:/Programmation (Java)/Memory/src/ressources/2.png</location>
+		</link>
+		<link>
+			<name>src/ressources/3.png</name>
+			<type>1</type>
+			<location>D:/Programmation (Java)/Memory/src/ressources/3.png</location>
+		</link>
+		<link>
+			<name>src/ressources/4.png</name>
+			<type>1</type>
+			<location>D:/Programmation (Java)/Memory/src/ressources/4.png</location>
+		</link>
+		<link>
+			<name>src/ressources/5.png</name>
+			<type>1</type>
+			<location>D:/Programmation (Java)/Memory/src/ressources/5.png</location>
+		</link>
+		<link>
+			<name>src/ressources/6.png</name>
+			<type>1</type>
+			<location>D:/Programmation (Java)/Memory/src/ressources/6.png</location>
+		</link>
+	</linkedResources>
+</projectDescription>
