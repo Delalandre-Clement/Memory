@@ -14,6 +14,7 @@ public class CarteJeu extends JButton {
 	private static final long serialVersionUID = 1L;
 	private int etat;
 	private Image imgCache;
+	private int numImage;
 	
 	public static final int ETAT_DEFAULT = 0;
 	public static final int ETAT_RETOURNE = 1;
@@ -37,6 +38,7 @@ public class CarteJeu extends JButton {
 	public CarteJeu(String text, int numImage){
 		super(text);
 		this.etat = ETAT_DEFAULT;
+		this.numImage=numImage;
 		
 		URL ressourceImage;
 		
@@ -57,7 +59,9 @@ public class CarteJeu extends JButton {
 	/*
 	 * Getter and Setter
 	 */
-	
+	public int getNumImage() {
+		return this.numImage;
+	}
 	public Image getImgCache() {
 		return imgCache;
 	}

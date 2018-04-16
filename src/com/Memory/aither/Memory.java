@@ -16,6 +16,7 @@ public class Memory {
 	int cpt_clic = 0;
 	int cpt_carte_trouve = 0;
 	CarteJeu Memoire = null;
+	private static final int nombreCombinaison = 6;
 	
 	/**
 	 * Launch the application.
@@ -70,9 +71,11 @@ public class Memory {
 			if(jbutton.getEtat() != (CarteJeu.ETAT_DEFAULT)) return;
 			jbutton.setEtat1(CarteJeu.ETAT_RETOURNE);
 			if( cpt_clic %2 == 1 ){
-				if(jbutton.getImgCache().equals(Memoire.getImgCache()) ) {
+				if(jbutton.getNumImage() == Memoire.getNumImage()) {
 					jbutton.setVisible(false);
 					Memoire.setVisible(false);
+					cpt_carte_trouve++;
+					testGagnant(cpt_carte_trouve);
 				} else {
 					jbutton.setEtat1(CarteJeu.ETAT_DEFAULT);
 					Memoire.setEtat1(CarteJeu.ETAT_DEFAULT);
@@ -81,6 +84,8 @@ public class Memory {
 			cpt_clic++;
 			Memoire= jbutton;
 		}
+
+
 	};
 	
 	// Mélange les valeurs d'un tableau
@@ -99,4 +104,11 @@ public class Memory {
 	    return min + Math.random() * (max - min);
 	}
 
+	private void testGagnant(int carteTrouve) {
+		if(carteTrouve == nombreCombinaison) {
+			javax.swing.JOptionPane.showMessageDialog(null, "Vous avez gagné en "+ cpt_clic /2+" essais !");
+			System.exit(0);
+		}
+		
+	}
 }
