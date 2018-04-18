@@ -7,6 +7,7 @@ import java.awt.event.ActionListener;
 import java.util.ArrayList;
 import javax.swing.JFrame;
 import Jeu.CarteJeu;
+import java.util.Timer;
 
 public class Memory {
 
@@ -16,6 +17,7 @@ public class Memory {
 	int cpt_carte_trouve = 0;
 	CarteJeu Memoire = null;
 	private static final int nombreCombinaison = 6;
+	Timer chronoJeu = new Timer();
 	
 	/**
 	 * Launch the application.
@@ -43,12 +45,23 @@ public class Memory {
 	/**
 	 * Initialize the contents of the frame.
 	 */
+	@SuppressWarnings("null")
 	private void initialize() {
 		frame = new JFrame();
 		frame.setBounds(100, 100, 288, 225);
 		frame.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
 		frame.getContentPane().setLayout(new GridLayout(0, 3, 0, 0));
-		int tabNumeroImage[]={1,1,2,2,3,3,4,4,5,5,6,6};
+		/*
+		int[] tabNumeroImage = {0};
+		int compteur=1;
+		for(int i=0;i<11;i++){
+			tabNumeroImage[i]=compteur;
+			if(i%2 == 0) {
+				compteur ++;
+			}
+		}
+		*/
+		int[] tabNumeroImage = {1,1,2,2,3,3,4,4,5,5,6,6};
 		ArrayList<CarteJeu> jeuCarte = new ArrayList<CarteJeu>();
 		melangerTableau(tabNumeroImage);
 		
@@ -68,7 +81,12 @@ public class Memory {
 			CarteJeu jbutton = (CarteJeu)arg0.getSource();
 			if(jbutton.getEtat() != (CarteJeu.ETAT_DEFAULT)) return;
 			jbutton.setEtat1(CarteJeu.ETAT_RETOURNE);
+			if(cpt_clic == 0) {
+				//chronoJeu.start();
+			}
+			// 1ère ou seconde carte ?
 			if( cpt_clic %2 == 1 ){
+				// Carte identique (image) ?
 				if(jbutton.getNumImage() == Memoire.getNumImage()) {
 					jbutton.setVisible(false);
 					Memoire.setVisible(false);
@@ -92,7 +110,7 @@ public class Memory {
 
 	};
 	
-	// Mélange les valeurs d'un tableau
+	// Mélange les valeurs du tableau
 	private void melangerTableau(int t[]) {
 	    for (int i = 0; i < 10; i++) {    // On mélange 10 fois
 	        for (int j = 0; j < t.length; j++) {
