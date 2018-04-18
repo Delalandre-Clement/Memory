@@ -53,9 +53,6 @@ public class CarteJeu extends JButton {
 		this.setIcon(null);
 	}
 	
-
-	
-	
 	/*
 	 * Getter and Setter
 	 */

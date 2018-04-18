@@ -8,10 +8,9 @@ import java.util.ArrayList;
 import javax.swing.JFrame;
 import Jeu.CarteJeu;
 
-
 public class Memory {
 
-	private JFrame frame;
+	JFrame frame;
 	ArrayList<CarteJeu> jeuCarte = new ArrayList<CarteJeu>();
 	int cpt_clic = 0;
 	int cpt_carte_trouve = 0;
@@ -25,9 +24,8 @@ public class Memory {
 		EventQueue.invokeLater(new Runnable() {
 			public void run() {
 				try {
-					Memory window = new Memory();
-					window.frame.setVisible(true);
-					window.frame.repaint();
+					Fenetre demandetaille = new Fenetre();
+					demandetaille.setVisible(true);					
 				} catch (Exception e) {
 					e.printStackTrace();
 				}
@@ -77,6 +75,12 @@ public class Memory {
 					cpt_carte_trouve++;
 					testGagnant(cpt_carte_trouve);
 				} else {
+					try {
+						Thread.sleep(800);
+					} catch (InterruptedException e) {
+						// TODO Auto-generated catch block
+						e.printStackTrace();
+					}
 					jbutton.setEtat1(CarteJeu.ETAT_DEFAULT);
 					Memoire.setEtat1(CarteJeu.ETAT_DEFAULT);
 				}
